@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:heart_rate_bpm_meter/data/ui-settings/colorsPalette.dart';
+import 'package:heart_rate_bpm_meter/data/ui-settings/colors_palette.dart';
+import 'package:heart_rate_bpm_meter/presentation/screens/settings.dart';
 
-import 'components/btmNavBar.dart';
+import 'components/home/btmNavBar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,22 +24,11 @@ class _HomePage extends State<HomePage> {
         List pages = [
           Text('1'),
           Text('2'),
-          Text('3'),
-          Text('4')
+          SettingsScreen(),
         ];
         return CupertinoTabView(
             builder:(context){
-              switch(_selectedIndex){
-                case 1: {
-                  return new Text('');
-                }
-                case 2:{
-                  return new Text('');
-                }
-                default: {
                   return pages[_selectedIndex];
-                }
-              }
             }
         );
       },
