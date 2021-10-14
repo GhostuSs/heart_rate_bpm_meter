@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:heart_rate_bpm_meter/data/onboarding/slider_model.dart';
 import 'package:heart_rate_bpm_meter/data/ui-settings/colors_palette.dart';
-import 'package:heart_rate_bpm_meter/presentation/components/onboarding/rateing_dialog.dart';
+import 'package:heart_rate_bpm_meter/presentation/components/onboarding/rating_dialog.dart';
 import 'package:heart_rate_bpm_meter/presentation/components/onboarding/slider_tile.dart';
 
 class OnBoardingScreen extends StatefulWidget{
@@ -40,7 +40,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
             );
           }
       ),
-      floatingActionButton: currentIndex != slides.length-1 ? btmSheet(false,'Continue',onContinue) : btmSheet(true,'Start FREE',onStartFree),
+      floatingActionButton: currentIndex != slides.length-1 ? floatingBtm(false,'Continue',onContinue) : floatingBtm(true,'Start FREE',onStartFree),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
@@ -56,7 +56,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
   void onStartFree(){
     Navigator.pushNamed(context, '/');
   }
-  Widget btmSheet(bool isLast,String text,onPressed){
+  Widget floatingBtm(bool isLast,String text,onPressed){
     return Container(
         decoration: const BoxDecoration(
           color: kWhite,
@@ -73,17 +73,21 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
                     color: kRed,
                     borderRadius: BorderRadius.circular(8.0)
                 ),
-                child: TextButton(
-                    child: Text(
-                      text,
-                      style: const TextStyle(
-                        color: kWhite,
-                        fontSize: 18.0,
-                        fontFamily: 'OpenSans-Bold',
-                        fontWeight: FontWeight.bold,
+                child: InkWell(
+                    child: Center(
+                      child: Text(
+                        text,
+                        style: const TextStyle(
+                          color: kWhite,
+                          fontSize: 18.0,
+                          fontFamily: 'OpenSans-Bold',
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                    onPressed:onPressed),
+                    splashColor: kRed,
+                    highlightColor: kRed,
+                    onTap:onPressed),
               ),
             ),
             isLast
@@ -105,7 +109,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
                         onTap: ()=>{},
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Container(
                           height: 16,
                           width: 1,
@@ -126,7 +130,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
                     ]
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 10),
+                  padding: const EdgeInsets.only(top: 10),
                   child: InkWell(
                     child: const Text(
                       'Restore purchases',

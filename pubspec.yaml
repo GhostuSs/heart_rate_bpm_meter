@@ -29,7 +29,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  get: ^4.3.8
   provider: ^6.0.0
   shared_preferences: ^2.0.8
   flutter_rating_bar: ^4.0.0
@@ -64,6 +63,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/
+    - assets/icons/2x/
+    - assets/icons/3x/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

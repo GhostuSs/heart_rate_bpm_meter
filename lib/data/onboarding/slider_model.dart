@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:heart_rate_bpm_meter/data/ui-settings/colors_palette.dart';
 
@@ -95,6 +97,6 @@ class Picture extends StatelessWidget{
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child:Center(child: Image.asset(name,filterQuality: FilterQuality.high)));
+      child:Center(child: Image.asset(name)));
   }
 }

@@ -4,10 +4,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'data/ui-settings/colors_palette.dart';
 
 bool seen=false;
+bool subscribe=false;
 Future<void> main() async {
-  //SharedPreferences prefs = await SharedPreferences.getInstance();
-  //seen = prefs.getBool("onboarding") ?? false;
- // await prefs.setBool("onboarding", true);
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  seen = prefs.getBool("seen") ?? false;
+  await prefs.setBool("seen", true);
   runApp(
       MaterialApp(
         color: kWhite,

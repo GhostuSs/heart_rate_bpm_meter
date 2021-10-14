@@ -44,11 +44,8 @@ class SliderTile extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(height: height*0.2),
-              AspectRatio(
-                aspectRatio: 1.5,
-                child: widget,
-              ),
-              SizedBox(height: height*0.01),
+              widget,
+              SizedBox(height: height*0.08),
               Text(
                 title,
                 textAlign: TextAlign.justify,
@@ -59,7 +56,7 @@ class SliderTile extends StatelessWidget {
                     fontFamily: 'OpenSans-SemiBold',
                     color: kBlack),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height*0.014),
                   child: Text(desc,

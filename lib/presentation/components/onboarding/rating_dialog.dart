@@ -19,11 +19,11 @@ class RateMyApp extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 64,
-                height: 64,
-                child: Image.asset('assets/icons/appIcon.png',
-                    filterQuality: FilterQuality.high),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                child: Image.asset('assets/icons/appIcon.png'),
               ),
               const Padding(
                 padding: EdgeInsets.only(top: 10, bottom: 5),
@@ -61,28 +61,28 @@ class RateMyApp extends StatelessWidget {
                         color: CupertinoColors.systemBlue,
                       )),
                 )),
-                CupertinoDialogAction(
-                    isDefaultAction: true,
-                    child: TextButton(
-                      child: const Text(
-                        'Cancel',
-                        style: _textStyle,
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    )),
-                CupertinoDialogAction(
-                    isDefaultAction: true,
-                    child: TextButton(
-                      child: const Text(
-                        'Submit',
-                        style: _textStyle,
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ))
+            CupertinoDialogAction(
+                isDefaultAction: false,
+                child: TextButton(
+                  child: const Text(
+                    'Cancel',
+                    style: _textStyle,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                )),
+            CupertinoDialogAction(
+                isDefaultAction: true,
+                child: TextButton(
+                  child: const Text(
+                    'Submit',
+                    style: _textStyle,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ))
           ],
         )
     );
