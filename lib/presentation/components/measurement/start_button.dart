@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:heart_rate_bpm_meter/data/ui-settings/colors_palette.dart';
 
@@ -5,16 +7,18 @@ class StartButton extends StatelessWidget {
   final double width;
   final double height;
   final onPressed;
-
-  const StartButton({
+  bool flag=false;
+  int label=0;
+  StartButton({Key? key,
     this.width = double.infinity,
     this.height = 50.0,
     required this.onPressed,
-  });
+    required this.flag,
+    required this.label
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return Container(
       width: width*0.5,
@@ -38,7 +42,24 @@ class StartButton extends StatelessWidget {
             splashColor: kRed,
             highlightColor: kRed,
             child: Center(
-              child: Image.asset('assets/icons/hand.png'),
+              child: flag ? Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text('$label',style: const TextStyle(
+                    color: kWhite,
+                    fontFamily: 'OpenSans-Regular',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 48
+                  )),
+                  const Text('Bpm',style: TextStyle(
+                    color: kWhite,
+                    fontSize: 14,
+                    fontFamily: 'OpenSans-Regular',
+                    fontWeight: FontWeight.w600
+                  )),
+                ],
+              )
+              :Image.asset('assets/icons/hand.png'),
             )),
       ),
     );

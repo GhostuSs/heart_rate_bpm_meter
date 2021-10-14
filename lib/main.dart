@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:heart_rate_bpm_meter/routes.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'data/data.dart';
 import 'data/ui-settings/colors_palette.dart';
 
 bool seen=false;
@@ -11,11 +13,15 @@ Future<void> main() async {
   seen = prefs.getBool("seen") ?? false;
   await prefs.setBool("seen", true);
   runApp(
-      MaterialApp(
-        color: kWhite,
+      MultiProvider(
+          providers: [
+            Provider<Data>(create: (_) => Data()),
+          ],
+      child: MaterialApp(
+          color: kWhite,
           debugShowCheckedModeBanner: false,
           initialRoute: seen ? '/' : "/onboarding" ,
           routes: routes
-      )
+      ))
   );
 }
