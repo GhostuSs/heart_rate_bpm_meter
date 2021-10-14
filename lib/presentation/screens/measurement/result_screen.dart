@@ -22,7 +22,6 @@ class _ResultScreen extends State<ResultScreen>{
   @override
   Widget build(BuildContext context) {
     final height=MediaQuery.of(context).size.height;
-    final width=MediaQuery.of(context).size.width;
     return Scaffold(
         resizeToAvoidBottomInset: true,
         backgroundColor: kWhite,
@@ -67,7 +66,7 @@ class _ResultScreen extends State<ResultScreen>{
                       fontSize: 48,
                     ),
                   ),
-                  SizedBox(width: 15),
+                  const SizedBox(width: 15),
                   const Text(
                     'Bpm',
                     style: TextStyle(
@@ -94,7 +93,7 @@ class _ResultScreen extends State<ResultScreen>{
               padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+                children: const [
                   Text(
                     'How do you feel yourself?',
                     style: TextStyle(

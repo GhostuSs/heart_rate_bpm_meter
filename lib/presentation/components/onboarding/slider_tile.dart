@@ -7,10 +7,10 @@ class SliderTile extends StatelessWidget {
   Widget widget;
   final bool flag;
   SliderTile(
-      {required this.widget,
+      {Key? key, required this.widget,
         required this.title,
         required this.desc,
-        required this.flag});
+        required this.flag}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

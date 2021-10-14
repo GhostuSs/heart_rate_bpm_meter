@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
 class StatisticsScreen extends StatefulWidget{
   const StatisticsScreen({Key? key}) : super(key: key);
   @override
@@ -11,7 +10,7 @@ class StatisticsScreen extends StatefulWidget{
 class _StatisticsScreen extends State<StatisticsScreen>{
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Text('soon'),
     );
   }

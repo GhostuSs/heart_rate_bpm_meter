@@ -45,7 +45,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
     );
   }
   Future<void> onContinue() async {
-    if (currentIndex==1) await showDialog(context: context,builder: (context)=>RateMyApp());
+    if (currentIndex==1) await showDialog(context: context,builder: (context)=>const RateMyApp());
     setState(() {
       currentIndex++;
       pageController.animateToPage(

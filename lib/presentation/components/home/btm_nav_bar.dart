@@ -1,3 +1,6 @@
+// ignore: file_names
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:heart_rate_bpm_meter/data/ui-settings/colors_palette.dart';

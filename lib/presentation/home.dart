@@ -5,7 +5,7 @@ import 'package:heart_rate_bpm_meter/presentation/screens/measurement/start_scre
 import 'package:heart_rate_bpm_meter/presentation/screens/settings/settings.dart';
 import 'package:heart_rate_bpm_meter/presentation/screens/statistics/statistics_screen.dart';
 
-import 'components/home/btmNavBar.dart';
+import 'components/home/btm_nav_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

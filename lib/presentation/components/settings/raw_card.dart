@@ -22,7 +22,7 @@ Widget rawCard(String text,onPressed){
             child: Row(
               children: [
                 Padding(
-                    padding: EdgeInsets.only(left: 20),
+                    padding: const EdgeInsets.only(left: 20),
                     child: Text(
                         text,
                         style: const TextStyle(

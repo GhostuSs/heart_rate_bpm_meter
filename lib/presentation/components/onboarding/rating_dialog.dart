@@ -5,6 +5,8 @@ import 'package:heart_rate_bpm_meter/data/ui-settings/colors_palette.dart';
 
 
 class RateMyApp extends StatelessWidget {
+  const RateMyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     const _textStyle = TextStyle(

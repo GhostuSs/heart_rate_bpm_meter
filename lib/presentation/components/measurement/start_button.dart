@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:heart_rate_bpm_meter/data/ui-settings/colors_palette.dart';

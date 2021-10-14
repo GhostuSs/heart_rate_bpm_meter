@@ -67,7 +67,6 @@ onPressed() async {
       started=true;
     });
     PulseWorker v=PulseWorker();
-    bool isMeasuring=true;
     await v.start();
     Timer.periodic(const Duration(seconds: 1), (timer) async {
       final suffix=context.read<Data>();
