@@ -63,24 +63,35 @@ class _StartScreen extends State<StartScreen>{
     );
   }
 onPressed() async {
+  PulseWorker pulse = PulseWorker();
+  final suffix = context.read<Data>();
+  var measuring=Timer.periodic(const Duration(seconds: 1), (timer) async {
+    if (timer.tick == 3 && started) {
+      timer.cancel();
+      await pulse.stop();
+      Navigator.push(context, PageTransition(
+          child: const ResultScreen(), type: PageTransitionType.rightToLeft));
+    }
+    else {
+      suffix.measurePoints.add(await pulse.current() ?? 0);
+    }
     setState(() {
-      started=true;
+      rate = suffix.measurePoints.last;
     });
-    PulseWorker v=PulseWorker();
-    await v.start();
-    Timer.periodic(const Duration(seconds: 1), (timer) async {
-      final suffix=context.read<Data>();
-      if(timer.tick==15){
-          timer.cancel();
-          await v.stop();
-          Navigator.push(context, PageTransition(child: const ResultScreen(), type: PageTransitionType.rightToLeft));
-      }
-          else{
-            suffix.measurePoints.add(await v.current() ?? 0);
-          }
-      setState(() {
-        rate=suffix.measurePoints.last;
-      });
+  });
+  if (!started) {
+    setState(() {
+      started = true;
     });
+    await pulse.start();
+    measuring;
+  }else{
+    await pulse.stop();
+    measuring.cancel();
+    setState(() {
+      started=false;
+    });
+    suffix.measurePoints=[];
+  }
 }
 }

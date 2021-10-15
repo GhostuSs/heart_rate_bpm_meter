@@ -7,7 +7,7 @@ import 'package:heart_rate_bpm_meter/data/ui-settings/colors_palette.dart';
 
 CupertinoTabBar btmNavBar(int selectedIndex) {
   return CupertinoTabBar(
-    backgroundColor: kLightGray.withOpacity(0.94),
+    backgroundColor: kDarkGray.withOpacity(0.1),
     activeColor: kRed,
     inactiveColor: kDarkGray,
     currentIndex: selectedIndex,

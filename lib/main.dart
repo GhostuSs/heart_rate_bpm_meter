@@ -12,16 +12,31 @@ Future<void> main() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   seen = prefs.getBool("seen") ?? false;
   await prefs.setBool("seen", true);
-  runApp(
-      MultiProvider(
-          providers: [
-            Provider<Data>(create: (_) => Data()),
-          ],
-      child: MaterialApp(
-          color: kWhite,
-          debugShowCheckedModeBanner: false,
-          initialRoute: seen ? '/' : "/onboarding" ,
-          routes: routes
-      ))
-  );
+  runApp(const App());
+}
+
+class App extends StatefulWidget{
+  const App({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return _App();
+  }
+}
+
+class _App extends State<App>{
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+        providers: [
+          Provider<Data>(create: (_) => Data()),
+        ],
+        child: MaterialApp(
+            color: kWhite,
+            debugShowCheckedModeBanner: false,
+            initialRoute: seen ? '/' : "/onboarding" ,
+            routes: routes
+        ));
+  }
+
 }
