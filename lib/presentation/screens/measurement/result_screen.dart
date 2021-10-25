@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:heart_rate_bpm_meter/data/data.dart';
+import 'package:heart_rate_bpm_meter/data/history.dart';
 import 'package:heart_rate_bpm_meter/data/ui-settings/colors_palette.dart';
 import 'package:heart_rate_bpm_meter/presentation/components/measurement/result_card.dart';
+import 'package:heart_rate_bpm_meter/presentation/screens/measurement/start_screen.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/src/provider.dart';
 
 class ResultScreen extends StatefulWidget{
@@ -15,7 +18,9 @@ class ResultScreen extends StatefulWidget{
 class _ResultScreen extends State<ResultScreen>{
   @override
   void initState() {
-    //addThis();
+    DateTime dateTime = DateTime.now();
+    String currentDateTime='${dateTime.day}.'+(dateTime.month<DateTime.october?'0':'')+'${dateTime.month}.${dateTime.year}, ${dateTime.hour}:'+(dateTime.minute<10?'0':'')+'${dateTime.minute}';
+    context.read<Data>().dateOfMeasure=currentDateTime;
     super.initState();
   }
   double sliderValue=0;
@@ -120,7 +125,6 @@ class _ResultScreen extends State<ResultScreen>{
                 onChanged:(value){
                   sliderValue=value;
                   setState(() {
-                    print(sliderValue);
                   });
                 },
               ),
@@ -158,10 +162,69 @@ class _ResultScreen extends State<ResultScreen>{
     );
   }
   onPressed(){
-
-  }
-  addThis() async {
-    //await addList(context.read<Data>());
+    context.read<HistoryList>().dataList.add(context.read<Data>());
+    print('now the list is ${context.read<HistoryList>().dataList}');
+    Navigator.push(context,PageTransition(
+        child: const StartScreen(), type: PageTransitionType.rightToLeft));
   }
 }
 
+class HeartWidget extends StatefulWidget {
+  const HeartWidget({Key? key}) : super(key: key);
+  @override
+  _HeartWidgetState createState() => _HeartWidgetState();
+}
+
+class _HeartWidgetState extends State<HeartWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Testing'),
+      ),
+      body: Center(
+        child: CustomPaint(
+          size: Size(70, 80),
+          painter: HeartPainter(),
+        ),
+      ),
+    );
+  }
+}
+
+class HeartPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    // TODO: implement paint
+    Paint paint = Paint();
+    paint
+      ..color = Colors.black
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round
+      ..strokeWidth = 6;
+
+    Paint paint1 = Paint();
+    paint1
+      ..color = Colors.red
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 0;
+
+    double width = size.width;
+    double height = size.height;
+    Path path = Path();
+    path.moveTo(0.5 * width, height * 0.35);
+    path.cubicTo(0.2 * width, height * 0.1, -0.25 * width, height * 0.6,
+        0.5 * width, height);
+    path.moveTo(0.5 * width, height * 0.35);
+    path.cubicTo(0.8 * width, height * 0.1, 1.25 * width, height * 0.6,
+        0.5 * width, height);
+
+    canvas.drawPath(path, paint1);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+}

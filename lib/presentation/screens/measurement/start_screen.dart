@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:heart_rate_bpm_meter/data/data.dart';
+import 'package:heart_rate_bpm_meter/data/history.dart';
 import 'package:heart_rate_bpm_meter/data/pulse_worker.dart';
 import 'package:heart_rate_bpm_meter/presentation/components/measurement/start_button.dart';
 import 'package:heart_rate_bpm_meter/presentation/screens/measurement/result_screen.dart';
@@ -66,7 +67,7 @@ onPressed() async {
   PulseWorker pulse = PulseWorker();
   final suffix = context.read<Data>();
   var measuring=Timer.periodic(const Duration(seconds: 1), (timer) async {
-    if (timer.tick == 3 && started) {
+    if (timer.tick == 5 && started) {
       timer.cancel();
       await pulse.stop();
       Navigator.push(context, PageTransition(
