@@ -125,6 +125,7 @@ class _ResultScreen extends State<ResultScreen>{
                 onChanged:(value){
                   sliderValue=value;
                   setState(() {
+                    context.read<Data>().feelings=sliderValue.roundToDouble();
                   });
                 },
               ),
@@ -162,8 +163,10 @@ class _ResultScreen extends State<ResultScreen>{
     );
   }
   onPressed(){
+    print(context.read<Data>().measurePoints);
+    print(context.read<Data>().feelings);
     context.read<HistoryList>().dataList.add(context.read<Data>());
-    print('now the list is ${context.read<HistoryList>().dataList}');
+    print('now the list is ${context.read<HistoryList>().dataList.last.measurePoints}');
     Navigator.push(context,PageTransition(
         child: const StartScreen(), type: PageTransitionType.rightToLeft));
   }
@@ -180,7 +183,7 @@ class _HeartWidgetState extends State<HeartWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Testing'),
+        title: const Text('Testing'),
       ),
       body: Center(
         child: CustomPaint(

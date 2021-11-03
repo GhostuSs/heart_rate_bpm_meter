@@ -1,12 +1,9 @@
-import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:heart_rate_bpm_meter/data/data.dart';
 import 'package:heart_rate_bpm_meter/data/history.dart';
 import 'package:heart_rate_bpm_meter/data/ui-settings/colors_palette.dart';
 import 'package:provider/src/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class StatisticsScreen extends StatefulWidget {
@@ -19,8 +16,10 @@ class StatisticsScreen extends StatefulWidget {
 
 class _StatisticsScreen extends State<StatisticsScreen> {
   List<Widget>? historyList;
+  late List<PulseData> _chartData;
   @override
   void initState() {
+    _chartData=getChartData();
     super.initState();
   }
 
@@ -52,14 +51,20 @@ class _StatisticsScreen extends State<StatisticsScreen> {
             const SizedBox(height: 15),
             const RawSegmented(), //segmented
             const SizedBox(height: 15),
-            SfCartesianChart(series: <ChartSeries>[
-              LineSeries<int, int>(
-                  color: kRed,
-                  width:10,
-                  xValueMapper: (datum, _) =>1,
-                  yValueMapper: (datum, _) => 1,
-                  dataSource: [0,0])
-            ]),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              height: height*0.25,
+              child: SfCartesianChart(
+                  enableAxisAnimation: true,
+                  series: <ChartSeries>[
+                LineSeries<PulseData,double>(
+                    color: kRed,
+                    width:3,
+                    xValueMapper: (PulseData data, _) =>data.day,
+                    yValueMapper: (PulseData data, _) => data.pulseValue,
+                    dataSource: _chartData)
+              ]),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
               child: Container(
@@ -129,6 +134,23 @@ class _StatisticsScreen extends State<StatisticsScreen> {
       ),
     );
   }
+  List<PulseData> getChartData(){
+    List<PulseData> chartData = [
+      PulseData(1, 50),
+      PulseData(2, 75),
+      PulseData(3, 20),
+      PulseData(4, 100),
+      PulseData(5, 73),
+      PulseData(6, 60),
+    ];
+    return chartData;
+  }
+}
+
+class PulseData{
+  final double day;
+  final double pulseValue;
+  PulseData(this.day,this.pulseValue);
 }
 
 class RawSegmented extends StatefulWidget {
@@ -273,10 +295,10 @@ class _HistoryCard extends State<HistoryCard> {
                         borderRadius: BorderRadius.circular(10)
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 12,horizontal: 50),
-                    child: const Center(
+                    child: Center(
                         child: Text(
-                            ' 92% ',
-                          style: TextStyle(
+                            ' ${context.read<HistoryList>().dataList.first.feelings.round()}% ',
+                          style: const TextStyle(
                             color: kWhite,
                             fontSize: 16,
                             fontFamily: 'OpenSans-Regular',
