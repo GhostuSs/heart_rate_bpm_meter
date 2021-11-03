@@ -44,7 +44,7 @@ class Tab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 50,
+        height: 38,
         child: Center(
           child: Text(
             label,

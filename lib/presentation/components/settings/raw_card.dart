@@ -28,7 +28,7 @@ Widget rawCard(String text,onPressed){
                         style: const TextStyle(
                             color: kBlack,
                             fontWeight: FontWeight.w500,
-                            fontSize: 21.0,
+                            fontSize: 19.0,
                             fontFamily: 'OpenSans-SemiBold'
                         )
                     )

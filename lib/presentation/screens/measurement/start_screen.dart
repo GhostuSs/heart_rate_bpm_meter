@@ -37,7 +37,7 @@ class _StartScreen extends State<StartScreen>{
                   style: TextStyle(
                     fontFamily:'OpenSans-SemiBold',
                     fontWeight: FontWeight.w600,
-                    fontSize: 24,
+                    fontSize: 22,
                   ),
 
 
@@ -52,7 +52,7 @@ class _StartScreen extends State<StartScreen>{
               child: const Text(
             'Tap to measure',
             style: TextStyle(
-                fontSize: 22,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
                 fontFamily: 'OpenSans-Regular'
             ),
@@ -66,7 +66,7 @@ onPressed() async {
   PulseWorker pulse = PulseWorker();
   final suffix = context.read<Data>();
   var measuring=Timer.periodic(const Duration(seconds: 1), (timer) async {
-    if (timer.tick == 5 && started) {
+    if (timer.tick == 15 && started) {
       timer.cancel();
       await pulse.stop();
       Navigator.push(context, PageTransition(

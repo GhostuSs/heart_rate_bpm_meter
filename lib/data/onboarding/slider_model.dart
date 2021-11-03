@@ -48,7 +48,6 @@ class Review extends StatelessWidget{
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-        height: 158,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: kBlack,width: 1.5)
@@ -73,7 +72,7 @@ class Review extends StatelessWidget{
                 ),
               ],
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 10),
             const Text(
               'Such a great app! It takes only a few moments to measure and provides all needed info!',
               style: TextStyle(
@@ -97,6 +96,10 @@ class Picture extends StatelessWidget{
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child:Center(child: Image.asset(name)));
+      child:AspectRatio(
+        aspectRatio: 2/1.2,
+        child: Center(child: Image.asset(name),
+      )
+    ));
   }
 }

@@ -30,7 +30,7 @@ class _SettingsScreen extends State<SettingsScreen>{
                       'Measurement',
                       style: TextStyle(
                           color: kBlack,
-                          fontSize: 32,
+                          fontSize: 30,
                           fontFamily: 'OpenSans-SemiBold',
                           fontWeight: FontWeight.w600
                       ),

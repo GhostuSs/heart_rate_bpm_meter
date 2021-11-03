@@ -47,7 +47,7 @@ class _ResultScreen extends State<ResultScreen>{
                     style: TextStyle(
                       fontFamily:'OpenSans-SemiBold',
                       fontWeight: FontWeight.w600,
-                      fontSize: 24,
+                      fontSize: 22,
                     ),
 
 
@@ -68,7 +68,7 @@ class _ResultScreen extends State<ResultScreen>{
                       color: kRed,
                       fontFamily: 'OpenSans-Regular',
                       fontWeight: FontWeight.w700,
-                      fontSize: 48,
+                      fontSize: 46,
                     ),
                   ),
                   const SizedBox(width: 15),
@@ -78,7 +78,7 @@ class _ResultScreen extends State<ResultScreen>{
                       color: kDarkGray,
                       fontFamily: 'OpenSans-Regular',
                       fontWeight: FontWeight.w700,
-                      fontSize: 24,
+                      fontSize: 22,
                     ),
                   )
                 ]
@@ -105,7 +105,7 @@ class _ResultScreen extends State<ResultScreen>{
                         color: kBlack,
                         fontFamily: 'OpenSans-Regular',
                         fontWeight: FontWeight.w600,
-                        fontSize: 20
+                        fontSize: 18
                     ),
                   ),
                 ],
@@ -136,10 +136,10 @@ class _ResultScreen extends State<ResultScreen>{
   }
   Widget btn(){
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.only(left: 20.0,right: 20,bottom: 20),
       child: Container(
         width: double.infinity,
-        height: 56,
+        height: 50,
         decoration: BoxDecoration(
             color: kRed,
             borderRadius: BorderRadius.circular(8.0)

@@ -79,7 +79,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
                         text,
                         style: const TextStyle(
                           color: kWhite,
-                          fontSize: 18.0,
+                          fontSize: 16.0,
                           fontFamily: 'OpenSans-Bold',
                           fontWeight: FontWeight.bold,
                         ),
@@ -103,7 +103,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
                           style: TextStyle(
                               color: kBlack,
                               fontFamily: 'OpenSans-Regular',
-                              fontSize: 14.0
+                              fontSize: 12.0
                           ),
                         ),
                         onTap: ()=>{},
@@ -122,7 +122,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
                           style: TextStyle(
                               color: kBlack,
                               fontFamily: 'OpenSans-Regular',
-                              fontSize: 14.0
+                              fontSize: 12.0
                           ),
                         ),
                         onTap: ()=>{},
@@ -137,7 +137,7 @@ class _OnBoardingScreen extends State<OnBoardingScreen> {
                       style: TextStyle(
                           color: kBlack,
                           fontFamily: 'OpenSans-Regular',
-                          fontSize: 16.0
+                          fontSize: 14.0
                       ),
                     ),
                     onTap: ()=>{},

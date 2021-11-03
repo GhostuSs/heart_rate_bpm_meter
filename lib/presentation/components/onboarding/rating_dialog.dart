@@ -11,7 +11,7 @@ class RateMyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     const _textStyle = TextStyle(
         color: CupertinoColors.systemBlue,
-        fontSize: 17.0,
+        fontSize: 15.0,
         fontFamily: 'OpenSans-Bold',
         fontWeight: FontWeight.bold);
     return Theme(
@@ -34,7 +34,7 @@ class RateMyApp extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: 'OpenSans-Bold',
                       fontWeight: FontWeight.bold,
-                      fontSize: 22,
+                      fontSize: 20,
                       color: kBlack),
                 ),
               ),
@@ -46,7 +46,7 @@ class RateMyApp extends StatelessWidget {
             overflow: TextOverflow.fade,
             style: TextStyle(
                 fontFamily: 'OpenSans-Regular',
-                fontSize: 13,
+                fontSize: 11,
                 color: kBlack),
           ),
           actions: [
