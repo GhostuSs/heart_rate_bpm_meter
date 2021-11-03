@@ -16,6 +16,11 @@ class StatisticsScreen extends StatefulWidget {
 }
 
 class _StatisticsScreen extends State<StatisticsScreen> {
+  @override
+  void initState(){
+    setState((){});
+    super.initState();
+  }
   List<Widget>? historyList;
   late List<Data> loadedList;
   late List<PulseData> _chartData;
@@ -78,8 +83,7 @@ class _StatisticsScreen extends State<StatisticsScreen> {
                                   color: kRed,
                                   width: 3,
                                   xValueMapper: (PulseData data, _) => data.day,
-                                  yValueMapper: (PulseData data, _) =>
-                                      data.pulseValue,
+                                  yValueMapper: (PulseData data, _) => data.pulseValue,
                                   dataSource: _chartData)
                             ]),
                       ),
@@ -105,7 +109,7 @@ class _StatisticsScreen extends State<StatisticsScreen> {
                                 'Average value:',
                                 style: TextStyle(
                                     color: kBlack,
-                                    fontSize: 20,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: 'OpenSans-Regular'),
                               ),
@@ -114,7 +118,7 @@ class _StatisticsScreen extends State<StatisticsScreen> {
                                 'You felt great most of the time',
                                 style: TextStyle(
                                     color: kRed,
-                                    fontSize: 20,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: 'OpenSans-Regular'),
                               )
@@ -131,7 +135,7 @@ class _StatisticsScreen extends State<StatisticsScreen> {
                               'History:',
                               style: TextStyle(
                                   color: kBlack,
-                                  fontSize: 23,
+                                  fontSize: 21,
                                   fontWeight: FontWeight.w600,
                                   fontFamily: 'OpenSans-Regular'),
                             )
@@ -181,6 +185,7 @@ class HistoryCard extends StatefulWidget {
 class _HistoryCard extends State<HistoryCard> {
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
       child: Container(
@@ -208,7 +213,7 @@ class _HistoryCard extends State<HistoryCard> {
                           color: kBlack,
                           fontFamily: 'OpenSans-Regular',
                           fontWeight: FontWeight.w500,
-                          fontSize: 16),
+                          fontSize: 14),
                     ),
                   ],
                 ),
@@ -227,7 +232,7 @@ class _HistoryCard extends State<HistoryCard> {
                             color: kBlack,
                             fontFamily: 'OpenSans-Regular',
                             fontWeight: FontWeight.w600,
-                            fontSize: 38),
+                            fontSize: 36),
                       ),
                       const SizedBox(width: 10),
                       Padding(
@@ -238,7 +243,7 @@ class _HistoryCard extends State<HistoryCard> {
                                 color: kDarkGray.withOpacity(0.5),
                                 fontFamily: 'OpenSans-Regular',
                                 fontWeight: FontWeight.w600,
-                                fontSize: 16),
+                                fontSize: 14),
                           )),
                     ],
                   ),
@@ -246,16 +251,16 @@ class _HistoryCard extends State<HistoryCard> {
                     decoration: BoxDecoration(
                         color: kRed, borderRadius: BorderRadius.circular(10)),
                     padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 50),
+                        vertical: 15, horizontal: 35),
                     child: Center(
                         child: Text(
-                      ' ${widget.data[widget.index].feelings.round()}% ',
-                      style: const TextStyle(
-                          color: kWhite,
-                          fontSize: 16,
-                          fontFamily: 'OpenSans-Regular',
-                          fontWeight: FontWeight.w500),
-                    )),
+                          ' ${widget.data[widget.index].feelings.round()}% ',
+                          style: const TextStyle(
+                              color: kWhite,
+                              fontSize: 14,
+                              fontFamily: 'OpenSans-Regular',
+                              fontWeight: FontWeight.w500),
+                        )),
                   ),
                 ],
               ),
