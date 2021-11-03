@@ -16,12 +16,12 @@ class HomePage extends StatefulWidget {
   }
 }
 class _HomePage extends State<HomePage> {
-  int _selectedIndex = 0;
+  int selectedIndex = 1;
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       backgroundColor: kWhite,
-      tabBar: btmNavBar(_selectedIndex),
+      tabBar: btmNavBar(selectedIndex),
       tabBuilder: (BuildContext context, _selectedIndex){
         List pages = [
           const StatisticsScreen(),

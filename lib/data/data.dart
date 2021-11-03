@@ -18,20 +18,23 @@ class Data{
   removeData(){
     measurePoints=[];
     dateOfMeasure='';
+    feelings=0;
   }
   Map<String,dynamic> toJson(){
     return{
       'dateOfMeasure':dateOfMeasure,
       'measurePoints':measurePoints,
+      'feelings':feelings
     };
   }
   Data.fromJson(Map<String,dynamic> json){
     dateOfMeasure=json['dateOfMeasure'];
-    measurePoints=json['measurePoints'];
+    measurePoints=json['measurePoints'].cast<int>();
+    feelings=json['feelings'];
   }
   fromJson(Map<String,dynamic> json){
     dateOfMeasure=json['dateOfMeasure'];
-    measurePoints=json['measurePoints'];
+    measurePoints=json['measurePoints'].cast<int>();
   }
 }
 

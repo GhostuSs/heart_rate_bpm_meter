@@ -37,10 +37,10 @@ class HistoryList {
 
   addList(Data data) async {
     List<Data> list = await getList();
-    print(list);
     list.add(data);
-    print(list[0].dateOfMeasure);
-    print(list[0].measurePoints);
+    for(int i=0;i<list.length;i++){
+      print(list[i].measurePoints);
+    }
     await saveList(list);
   }
 
