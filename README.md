@@ -8,5 +8,6 @@ ________________________________________________________________________________
 
 ### UI (Figma)
 
-![Screenshot](https://github.com/GhostuSs/heart_rate_bpm_meter/)
+![Screenshot](https://github.com/GhostuSs/heart_rate_bpm_meter/blob/master/assets/Снимок экрана 2022-04-12 в 03.04.06.png)
+![Screenshot](https://github.com/GhostuSs/heart_rate_bpm_meter/blob/master/assets/Снимок экрана 2022-04-12 в 03.04.42.png)
 
